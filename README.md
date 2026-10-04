@@ -13,7 +13,7 @@ virtuels, gestion des défauts, temporisations, tests unitaires et couverture.
 - Validation des mesures, contrôles de plausibilité, anti-rebond des défauts, journal horodaté
 - Temporisations : timeout capteur (500 ms), temps de stabilité avant récupération (1000 ms)
 - Horloge de simulation déterministe (+ mode temps réel `--realtime`)
-- 39 tests unitaires, couverture gcov/gcovr, CI GitHub Actions
+- 41 tests unitaires, couverture gcov/gcovr, CI GitHub Actions
 
 ## Compiler et exécuter
 ```bash
@@ -29,7 +29,7 @@ pip install gcovr
 cmake -S . -B build-cov -DCMAKE_BUILD_TYPE=Debug -DECU_COVERAGE=ON
 cmake --build build-cov --target coverage    # rapport HTML : build-cov/coverage.html
 ```
-Résultat de référence : lignes 97,5 %, fonctions 100 %, branches 85,7 %.
+Résultat de référence : lignes 97,5 %, fonctions 100 %, branches 87,1 %.
 
 ## Exemple d'exécution
 ```

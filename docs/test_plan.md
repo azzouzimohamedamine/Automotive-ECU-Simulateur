@@ -1,7 +1,7 @@
 # Plan de test et résultats
 
 Exécution : `ctest --output-on-failure` ou `./build/tests/ecu_tests`.
-Résultat de référence : **39 / 39 tests réussis**.
+Résultat de référence : **41 / 41 tests réussis**.
 
 ## Couverture mesurée (gcovr, build Debug, `-DECU_COVERAGE=ON`)
 
@@ -9,7 +9,7 @@ Résultat de référence : **39 / 39 tests réussis**.
 |---|---|
 | Lignes | 97,5 % (196 / 201) |
 | Fonctions | 100 % (47 / 47) |
-| Branches | 85,7 % (120 / 140) |
+| Branches | 87,1 % (122 / 140) |
 
 Les lignes non couvertes sont les `return "Unknown"` / `{0,0}` de repli placés après des
 `switch` exhaustifs : inatteignables avec des enums valides. Une couverture élevée ne prouve
@@ -34,7 +34,7 @@ pas l'absence de défaut ; elle indique seulement ce que les tests exécutent.
 | TC-13 | Plausibilité pression basse | ERROR si véhicule roule, NORMAL à l'arrêt | `sm_low_oil_pressure_plausibility_depends_on_speed` |
 | TC-14 | Critique depuis DEGRADED | ERROR | `sm_critical_fault_from_degraded_goes_error` |
 | TC-15 | Récupération automatique interdite | Reste ERROR 10 s après retour à la normale | `sm_error_never_recovers_automatically` |
-| TC-16 | Reset refusé (véhicule en mouvement / capteur invalide) | Reste ERROR | `sm_reset_refused_when_...` |
+| TC-16 | Reset refusé (véhicule en mouvement / capteur invalide) | Reste ERROR | `sm_reset_refused_when_...` (3 variantes : mouvement, capteur invalide, vitesse inconnue) |
 | TC-17 | Reset accepté à l'arrêt | ERROR → INIT → NORMAL, défauts effacés | `sm_reset_accepted_when_safe_then_init_to_normal` |
 | TC-18 | Reset hors ERROR | Ignoré | `sm_reset_ignored_outside_error_state` |
 | TC-19 | Commandes actionneurs par état | Table `state_machine.md` | `sm_commands_per_state`, `sm_actuators_follow_state_every_cycle` |

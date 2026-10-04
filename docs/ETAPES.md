@@ -64,7 +64,7 @@ refais les étapes dans l'ordre en t'en servant comme référence.
 - Banc `Rig` : assemble HAL simulée + services + application et avance l'horloge cycle par cycle.
 - Le framework `minitest.hpp` évite toute dépendance ; migration GoogleTest possible via
   `FetchContent` (les macros `TEST/CHECK_EQ` ressemblent à `TEST/EXPECT_EQ`).
-- ✅ `ctest` : 39/39. Commit : `test: unit tests for validator, diagnostic, services, state machine`.
+- ✅ `ctest` : 41/41. Commit : `test: unit tests for validator, diagnostic, services, state machine`.
 
 ## Étape 10 — Couverture (2 h)
 - `cmake -S . -B build-cov -DECU_COVERAGE=ON && cmake --build build-cov --target coverage`

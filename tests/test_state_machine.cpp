@@ -260,3 +260,15 @@ TEST(sm_transition_log_records_time_and_reason) {
     CHECK_EQ(t[1].timeMs, 300u);
     CHECK(std::string(t[1].reason) == "recoverable fault");
 }
+
+TEST(sm_reset_refused_when_speed_sensor_not_valid) {
+    Rig r;
+    r.run(1);
+    r.set(SensorId::OilPressure, 12.0);
+    r.run(3);
+    r.set(SensorId::OilPressure, 3.0);
+    r.set(SensorId::VehicleSpeed, kNaN);  // vitesse inconnue : l'arrêt ne peut pas être prouvé
+    r.run(1);
+    CHECK(!r.ecu.requestReset());
+    CHECK_EQ(r.ecu.state(), EcuState::Error);
+}

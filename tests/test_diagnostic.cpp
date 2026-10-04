@@ -64,3 +64,13 @@ TEST(diag_log_is_timestamped_and_clear_resets) {
     CHECK(!d.isActive(FaultCode::D006_InitFailed));
     CHECK_EQ(d.activeCount(), std::size_t{0});
 }
+
+TEST(diag_fail_counter_saturates_without_overflow) {
+    SimClock clk;
+    DiagnosticService d(clk);
+    for (int i = 0; i < 70000; ++i) d.report(FaultCode::D001_TempOutOfRange, true);
+    CHECK(d.isActive(FaultCode::D001_TempOutOfRange));
+    CHECK_EQ(d.log().size(), std::size_t{1});  // une seule confirmation journalisée
+    for (int i = 0; i < 3; ++i) d.report(FaultCode::D001_TempOutOfRange, false);
+    CHECK(!d.isActive(FaultCode::D001_TempOutOfRange));
+}
