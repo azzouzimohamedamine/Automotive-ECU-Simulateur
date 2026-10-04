@@ -1,0 +1,8 @@
+build/
+build-*/
+coverage*/
+*.gcda
+*.gcno
+*.o
+*.exe
+.vscode/
