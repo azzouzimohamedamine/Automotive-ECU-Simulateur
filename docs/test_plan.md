@@ -29,8 +29,4 @@ Résultat de référence : **41 / 41 tests réussis**.
 | TC-19 | Commandes actionneurs par état | Table `state_machine.md` | `sm_commands_per_state`, `sm_actuators_follow_state_every_cycle` |
 | TC-20 | Journal des transitions | from/to/horodatage/raison | `sm_transition_log_records_time_and_reason` |
 
-## Tests unitaires de services
 
-- `validator_*` : valeurs nominales, bornes exactes, dépassements, NaN, ±inf, capteur absent.
-- `sensor_service_*` : snapshot nominal, durée d'absence (croissance, remise à zéro), NaN ≠ absent, auto-test.
-- `diag_*` : anti-rebond, défaut intermittent, guérison, gravité, horodatage, `clearAll`.
