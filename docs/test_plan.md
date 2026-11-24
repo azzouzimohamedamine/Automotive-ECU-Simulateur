@@ -1,19 +1,8 @@
 # Plan de test et résultats
 
-Exécution : `ctest --output-on-failure` ou `./build/tests/ecu_tests`.
+Exécution : 
+
 Résultat de référence : **41 / 41 tests réussis**.
-
-## Couverture mesurée (gcovr, build Debug, `-DECU_COVERAGE=ON`)
-
-| Métrique | Résultat |
-|---|---|
-| Lignes | 97,5 % (196 / 201) |
-| Fonctions | 100 % (47 / 47) |
-| Branches | 87,1 % (122 / 140) |
-
-Les lignes non couvertes sont les `return "Unknown"` / `{0,0}` de repli placés après des
-`switch` exhaustifs : inatteignables avec des enums valides. Une couverture élevée ne prouve
-pas l'absence de défaut ; elle indique seulement ce que les tests exécutent.
 
 ## Scénarios de validation de haut niveau
 
